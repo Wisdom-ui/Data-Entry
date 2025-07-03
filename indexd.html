@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wisdom Nwosu - Data Entry Specialist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f8fafc 0%, #edf5fc 100%);
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(to right, #2c3e50, #1a365d);
+            color: white;
+            padding: 60px 0 40px;
+            text-align: center;
+            border-bottom: 5px solid #3498db;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,100 L0,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 5px solid #3498db;
+            background: linear-gradient(45deg, #2c3e50, #1a365d);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            font-size: 70px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .name-title h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+
+        .name-title h2 {
+            font-size: 1.8rem;
+            font-weight: 400;
+            margin-bottom: 25px;
+            color: #3498db;
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #f0f3f4;
+            font-weight: 300;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            margin-top: 15px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1.05rem;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(45deg, #2c3e50, #1a365d);
+            clip-path: polygon(0 0, 100% 0, 100% 100%);
+            opacity: 0.05;
+        }
+
+        section:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-family: 'Poppins', sans-serif;
+            color: #2c3e50;
+            font-size: 2.2rem;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 4px solid #3498db;
+            display: inline-block;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: "";
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+        }
+
+        .summary-content {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #34495e;
+        }
+
+        .highlight {
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .blue-highlight {
+            color: #3498db;
+            font-weight: 600;
+        }
+
+        .experience-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .experience-item {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-left: 5px solid #3498db;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        .experience-item:hover {
+            background: #edf7ff;
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .experience-item h3 {
+            color: #2c3e50;
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .experience-item .company {
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.2rem;
+        }
+
+        .experience-item .date {
+            color: #7f8c8d;
+            font-weight: 500;
+            margin-bottom: 15px;
+            font-style: italic;
+        }
+
+        .experience-item .location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #7f8c8d;
+            margin-bottom: 20px;
+        }
+
+        .experience-item ul {
+            padding-left: 25px;
+        }
+
+        .experience-item li {
+            margin-bottom: 15px;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .experience-item li::before {
+            content: "•";
+            color: #3498db;
+            font-weight: bold;
+            font-size: 1.5rem;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            top: -2px;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 12px;
+            border-top: 5px solid #3498db;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s ease;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-category h3 {
+            color: #2c3e50;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .skill-category h3::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background: #3498db;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .skill-tag {
+            background: #e3f2fd;
+            color: #2c3e50;
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .skill-tag:hover {
+            background: #3498db;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .stat-card {
+            background: linear-gradient(to bottom right, #2c3e50, #1a365d);
+            color: white;
+            padding: 35px 20px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.4s;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 80px;
+            height: 80px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+        }
+
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+
+        .stat-card i {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .stat-card .number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            margin: 15px 0;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-card .label {
+            font-size: 1.3rem;
+            opacity: 0.95;
+            font-weight: 500;
+        }
+
+        .quote-section {
+            background: linear-gradient(135deg, #2c3e50 0%, #1a365d 100%);
+            color: white;
+            text-align: center;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 50px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .quote-section::before {
+            content: """;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-size: 180px;
+            color: rgba(255, 255, 255, 0.1);
+            font-family: Georgia, serif;
+        }
+
+        .quote-text {
+            font-size: 1.8rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto 30px;
+            position: relative;
+            z-index: 1;
+            line-height: 1.7;
+        }
+
+        .quote-author {
+            font-size: 1.3rem;
+            font-weight: 500;
+            color: #3498db;
+        }
+
+        .cta-container {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #1a75bc 100%);
+            border-radius: 15px;
+            color: white;
+            margin: 50px 0;
+            box-shadow: 0 15px 30px rgba(52, 152, 219, 0.3);
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-subtitle {
+            font-size: 1.4rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.95;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #1a75bc;
+            padding: 18px 45px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            background: #f0f3f4;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 25px;
+            margin-top: 40px;
+            border-top: 5px solid #3498db;
+        }
+
+        .footer-content {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+
+        .footer-contact {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .footer-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+        }
+
+        .footer-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-item a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .copyright {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+
+        .data-process {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+
+        .process-step {
+            text-align: center;
+            max-width: 200px;
+        }
+
+        .process-icon {
+            width: 100px;
+            height: 100px;
+            background: #3498db;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 40px;
+            color: white;
+            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .process-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #2c3e50;
+        }
+
+        .process-desc {
+            color: #7f8c8d;
+            font-size: 1.05rem;
+        }
+
+        @media (max-width: 768px) {
+            .contact-info {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .name-title h1 {
+                font-size: 2.4rem;
+            }
+            
+            .name-title h2 {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .stat-card .number {
+                font-size: 2.2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="profile-container">
+            <div class="profile-img">
+                <i class="fas fa-database"></i>
+            </div>
+            <div class="name-title">
+                <h1>Wisdom Nwosu</h1>
+                <h2>Data Entry & Management Specialist</h2>
+            </div>
+            <p class="tagline">Transforming raw data into valuable assets with precision, efficiency, and meticulous attention to detail</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:wisdomchinwosu@gmail.com">wisdomchinwosu@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/wisdom-nwosu" target="_blank">linkedin.com/in/wisdom-nwosu</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+2347025286814">+234 7025 286 814</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <section id="summary">
+            <h2 class="section-title">Data Entry Expertise</h2>
+            <div class="summary-content">
+                <p>With a proven track record in data management and process optimization, I specialize in transforming complex information into organized, accessible, and valuable assets. My meticulous approach combines technical proficiency with strategic thinking to deliver exceptional results in data accuracy and efficiency.</p>
+                
+                <p>I've consistently achieved measurable improvements in data processing speed, accuracy rates, and operational efficiency across diverse industries. My expertise extends beyond data entry to include process optimization, quality control, and data-driven decision making.</p>
+            </div>
+        </section>
+
+        <section id="stats">
+            <h2 class="section-title">Data Management Impact</h2>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-chart-line"></i>
+                    <div class="number">18%</div>
+                    <div class="label">Company Growth Increase</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-bug"></i>
+                    <div class="number">30%</div>
+                    <div class="label">Error Reduction</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <div class="number">15%</div>
+                    <div class="label">Process Efficiency Gain</div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-file-alt"></i>
+                    <div class="number">10K+</div>
+                    <div class="label">Records Managed</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="process">
+            <h2 class="section-title">Data Management Process</h2>
+            <div class="data-process">
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-file-import"></i>
+                    </div>
+                    <h3 class="process-title">Data Collection</h3>
+                    <p class="process-desc">Systematic gathering from multiple sources</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3 class="process-title">Data Entry</h3>
+                    <p class="process-desc">Accurate and efficient data input</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3 class="process-title">Quality Control</h3>
+                    <p class="process-desc">Rigorous validation and verification</p>
+                </div>
+                
+                <div class="process-step">
+                    <div class="process-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3 class="process-title">Analysis & Reporting</h3>
+                    <p class="process-desc">Transforming data into actionable insights</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2 class="section-title">Data Entry Experience</h2>
+            <div class="experience-container">
+                <div class="experience-item">
+                    <h3>Data Entry Manager</h3>
+                    <div class="company"><i class="fas fa-building"></i> Family Search</div>
+                    <div class="date">2022 - 2023</div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Abuja, Nigeria</div>
+                    <ul>
+                        <li>Managed and enhanced data entry processes leading to <span class="blue-highlight">18% company growth</span></li>
+                        <li>Implemented quality control strategies that <span class="blue-highlight">reduced errors by 30%</span></li>
+                        <li>Restructured work quality by <span class="blue-highlight">15%</span> through new training programs</li>
+                        <li>Oversaw a team responsible for processing 5,000+ records monthly</li>
+                        <li>Developed standardized procedures that improved team efficiency by 25%</li>
+                    </ul>
+                </div>
+                
+                <div class="experience-item">
+                    <h3>Data Management Specialist</h3>
+                    <div class="company"><i class="fas fa-building"></i> Digital Market Research</div>
+                    <div class="date">2024</div>
+                    <div class="location"><i class="fas fa-map-marker-alt"></i> Salt Lake City, Utah, USA</div>
+                    <ul>
+                        <li>Managed large datasets for market research projects</li>
+                        <li>Improved data processing efficiency by <span class="blue-highlight">20%</span> through automation</li>
+                        <li>Developed data validation protocols that increased accuracy to 99.8%</li>
+                        <li>Created comprehensive reports that informed strategic marketing decisions</li>
+                        <li>Collaborated with analysts to identify key data trends and insights</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="quote-section">
+            <p class="quote-text">"Wisdom's exceptional data management skills transformed our operations. His ability to implement efficient systems while maintaining perfect accuracy contributed directly to our company's growth."</p>
+            <p class="quote-author">- Operations Director, Family Search</p>
+        </div>
+
+        <section id="skills">
+            <h2 class="section-title">Data Management Skills</h2>
+            <div class="skills-container">
+                <div class="skill-category">
+                    <h3><i class="fas fa-keyboard"></i> Data Entry & Processing</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> High-Speed Data Entry</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Database Management</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Excel & Spreadsheets</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Data Validation</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Record Maintenance</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Data Migration</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-tools"></i> Tools & Technologies</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Microsoft Excel</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Google Sheets</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Database Systems</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> QuickBooks</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> CRM Platforms</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Python Scripting</div>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3><i class="fas fa-chart-line"></i> Quality & Efficiency</h3>
+                    <div class="skills-list">
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Process Optimization</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Quality Control</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Accuracy Management</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Workflow Development</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Training & Documentation</div>
+                        <div class="skill-tag"><i class="fas fa-check-circle"></i> Data Analysis</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="cta-container">
+            <h2 class="cta-title">Need Precision Data Management?</h2>
+            <p class="cta-subtitle">Let's discuss how my data expertise can streamline your operations and improve your data quality</p>
+            <a href="mailto:wisdomchinwosu@gmail.com" class="cta-button">Contact Me Today</a>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <h3 class="footer-title">Connect With Me</h3>
+            <div class="footer-contact">
+                <div class="footer-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:wisdomchinwosu@gmail.com">wisdomchinwosu@gmail.com</a>
+                </div>
+                <div class="footer-item">
+                    <i class="fab fa-linkedin"></i>
+                    <a href="https://www.linkedin.com/in/wisdom-nwosu" target="_blank">LinkedIn</a>
+                </div>
+                <div class="footer-item">
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+2347025286814">+234 7025 286 814</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2024 Wisdom Nwosu | Data Management Specialist
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Animation for elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.stat-card, .experience-item, .skill-category, .cta-container, .process-step');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>
